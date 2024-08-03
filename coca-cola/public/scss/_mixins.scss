@@ -1,0 +1,110 @@
+@use './variables' as *;
+
+@mixin pepsi-font {
+    @font-face {
+        font-family: 'Pepsi Owners 2';
+        src: url('../font/PepsiOwners2-Extended220909.eot');
+        src: local('PepsiOwners2Extended220909'), local('PepsiOwners2-Extended220909'),
+            url('../font/PepsiOwners2-Extended220909.eot?#iefix') format('embedded-opentype'),
+            url('../font/PepsiOwners2-Extended220909.woff2') format('woff2'),
+            url('../font/PepsiOwners2-Extended220909.woff') format('woff'),
+            url('../font/PepsiOwners2-Extended220909.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Pepsi Owners 2';
+        src: url('../font/PepsiOwners2-Regular220909.eot');
+        src: local('PepsiOwners2Regular220909'), local('PepsiOwners2-Regular220909'),
+            url('../font/PepsiOwners2-Regular220909.eot?#iefix') format('embedded-opentype'),
+            url('../font/PepsiOwners2-Regular220909.woff2') format('woff2'),
+            url('../font/PepsiOwners2-Regular220909.woff') format('woff'),
+            url('../font/PepsiOwners2-Regular220909.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+}
+
+@mixin card-style {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
+@mixin card-hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+@mixin img-sli {
+    width: 85%;
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+@mixin slider-btn {
+    background-color: $text-light;
+    border: none;
+    padding: 5px;
+    margin: 0 4px 0 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    border-radius: 100%;
+    background-color: $bg-primary;
+    color: #fff;
+}
+
+@mixin slider-btn-hover {
+    border-radius: 100%;
+    background-color: #fff;
+    color: $bg-primary;
+}
+
+@mixin card-des-style {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
+@mixin card-des-hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+// Animation
+@mixin zoom {
+    padding: 50px;
+    transition: transform 0.2s;
+    width: 25rem;
+    height: 15rem;
+}
+
+@mixin zoom-hover {
+    transform: scale(1.1);
+}
+
+@mixin text-header-section {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: $text-light;
+    margin: 0 0 2.5rem 0;
+}
+
+@mixin slide-card-feature {
+    min-width: 100%;
+    height: 120vh;
+    box-sizing: border-box;
+    // padding: 15px;
+}
+
+@mixin slide-feature {
+    min-width: 100%;
+    box-sizing: border-box;
+    // padding: 15px;
+}
+
+@mixin margin-for-warning {
+    // margin: 0 15px 0 15px;
+}
