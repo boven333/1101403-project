@@ -14,7 +14,7 @@ body {
     @include pepsi-font;
     font-family: 'Pepsi Owners 2';
     background-color: $bg-dark;
-    // justify-content: center;
+    // max-width: 1440px;
 }
 
 nav {
@@ -23,6 +23,13 @@ nav {
     top: 0;
     width: 100%;
     height: auto;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    // z-index: -1;
 }
 
 // Navbar
@@ -201,13 +208,20 @@ nav {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    // margin: 0 0 5rem 0;
+    border-radius: 24px;
+}
+.card-des-img {
+    background-image: url('../images/social/PEPSI_2023_PR_Logo+Cans.png');
+    background-repeat: repeat;   /* This will repeat the image */
+    background-size: auto;       /* This will keep the original size of the image */
+    width: 100%;
+    height: 50%;   /* Adjust height as needed */
 }
 
-.card-des img {
-    width: 100%;
-    height: 50%;
-}
+// .card-des img {
+//     // width: 100%;
+//     height: 50%;
+// }
 
 .card-des {
     background-color: #fff;
@@ -314,6 +328,81 @@ nav {
 .card-feature-out {
     padding: 15px;
 }
+
+// Pepsi-jpobs
+.pepsi-jobs {
+    display: flex;
+    padding: 100px;
+    justify-content: center; /* Center the cards horizontally */
+    align-items: center; /* Center the cards vertically */
+    height: auto; /* Full viewport height to center vertically */
+    // background-color: #f0f0f0;
+}
+// Pepsijob-1
+.card-left-jobs {
+    background-color: $bg-light;
+    width: 544px;
+    height: 550px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin-top: -170px;
+    margin-right: -70px; /* Adjust the overlap */
+    padding: 80px;
+    @include card-des-style;
+}
+.card-left-jobs h1 {
+    font-size: 1.5rem;
+    margin: 20 auto;
+}
+
+.img-right-jobs {
+    // background-color: $bg-light;
+    background-image: url('../images/social/PEPSI_2023_PR_Photography_Overhead.png');
+    // background-size: cover;
+    width: 640px;
+    height: 550px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    @include card-des-style;
+}
+
+// pepsijobs-2
+.card-left-jobs-2{
+    background-color: $bg-light;
+    width: 544px;
+    height: 550px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin-top: -170px;
+    // margin-right: 70px; 
+    padding: 80px;
+    @include card-des-style;
+}
+.card-left-jobs-2 h1 {
+    font-size: 1.5rem;
+    margin: 20 auto;
+}
+
+.img-right-jobs-2 {
+    // background-color: $bg-light;
+    background-image: url('../images/social/PEPSI_2023_PR_Photography_Overhead.png');
+    // background-size: cover;
+    width: 640px;
+    height: 550px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    margin-right: -70px;
+    @include card-des-style;
+}
+
 
 // Footer
 footer {
@@ -444,18 +533,18 @@ footer {
 
     // double card
     .double-card {
-        height: 100vh;
+        height: auto;
         // background-color: #fff;
         display: flex;
         flex-wrap: nowrap;
         justify-content: space-evenly;
-        padding: 0 150px 0 150px;
+        padding: 50px 150px 50px 150px;
         // margin: 0 0 5rem 0;
     }
 
     .card-des {
         margin: 5 auto;
-        width: 35rem;
+        width: 33rem;
         height: 40rem;
     }
 
@@ -467,7 +556,7 @@ footer {
         justify-content: end;
         padding: 10px;
     }
-    
+
     .navbar-logo {
         width: 93%;
         display: flex;
