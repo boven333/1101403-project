@@ -108,3 +108,12 @@
 @mixin margin-for-warning {
     // margin: 0 15px 0 15px;
 }
+
+@mixin pepsi-card-prod {
+    width: 272px;
+    height: 272px;
+    border-radius: 16px;
+    background-color: red;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}

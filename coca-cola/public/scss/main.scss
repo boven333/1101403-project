@@ -403,6 +403,32 @@ nav {
     @include card-des-style;
 }
 
+// All Products 
+.products {
+    background-color: #fff;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.prod-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: blue;
+    width: 900px;
+    height: 900px;
+    align-items: center;
+    justify-items: center;
+}
+
+.pepsi-prod-card {
+    @include pepsi-card-prod;
+    // margin: 10px;
+}
+
 
 // Footer
 footer {
