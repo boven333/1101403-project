@@ -47,7 +47,7 @@ function prevSlide() {
 }
 
 function startSlideShow() {
-    slideInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    // slideInterval = setInterval(nextSlide, 3000);
 }
 
 function stopSlideShow() {
@@ -86,4 +86,48 @@ $(document).ready(function () {
     })
 
     $('.slider').hover(stopSlideShow, startSlideShow); // Pause on hover, resume on mouse leave
+
+    let $doubleCard = $('#double-card');
+    let doubleCard = $doubleCard.offset().top;
+    let $pepsi = $('#pepsi-jobs');
+    let pepsiPos = $pepsi.offset().top;
+    let $feature = $('#feature-news-container');
+    let featurePos = $feature.offset().top;
+
+    $(window).on('scroll', function() {
+        //double card
+        if ($(this).scrollTop() > doubleCard) {
+            $('#double-card').addClass('collapsed');
+        } else {
+            $('#double-card').removeClass('collapsed');
+        }
+
+        // pepsi content jobs
+        if ($(this).scrollTop() > pepsiPos) {
+            $('#pepsi-jobs').addClass('pepsi-collapsed');
+        } else {
+            $('#pepsi-jobs').removeClass('pepsi-collapsed');
+        }
+
+        // feature
+        if ($(this).scrollTop() > featurePos) {
+            $('#feature-news-container').addClass('feature-collapsed');
+        } else {
+            $('#feature-news-container').removeClass('feature-collapsed');
+        }
+    });
+
+        // var $header = $('#header');
+        // var headerOffsetTop = $header.offset().top;
+
+        // $(window).on('scroll', function() {
+        //     var scrollTop = $(this).scrollTop();
+
+        //     if (scrollTop > headerOffsetTop + 50) {
+        //         $header.addClass('collapsed');
+        //     } else {
+        //         $header.removeClass('collapsed');
+        //     }
+        // });
+
 });

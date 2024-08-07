@@ -113,7 +113,32 @@
     width: 272px;
     height: 272px;
     border-radius: 16px;
-    background-color: red;
+    // background-color: red;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.5s;
+    cursor: pointer;
+}
+
+@mixin z($value) {
+    transform: $value;
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -ms-transition: $value;
+    -o-transition: $value;
+}
+
+@mixin transition($value) {
+    transition: $value;
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -ms-transition: $value;
+    -o-transition: $value;
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -o-transform: $value;
+    -ms-transform: $value;
+    transform: $value;
 }

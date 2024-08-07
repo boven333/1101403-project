@@ -1,0 +1,835 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+* {
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    @include pepsi-font;
+    font-family: 'Pepsi Owners 2';
+    background-color: $bg-dark;
+    // max-width: 1440px;
+}
+
+nav {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+a {
+    text-decoration: none;
+    color: $text-light;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    // z-index: -1;
+}
+
+// Navbar
+.navbar {
+    background: $bg-primary;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.navbar-logo>img {
+    width: 65px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 25px 10px;
+}
+
+.nav-link:hover {
+    background-color: #fff;
+    color: $bg-primary;
+}
+
+// Content - slider
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 100px 0 0 0;
+    overflow: hidden;
+    // background-color: red;
+    height: 80%;
+}
+
+.img-slider {
+    // background-color: red;
+    // padding: 5rem;
+    display: flex;
+    // flex-direction: row;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    @include slide-card-feature
+}
+
+.card {
+    margin: -150 auto;
+    position: relative;
+    border-radius: 12px;
+    background-color: #fff;
+    overflow: hidden;
+    width: 18rem;
+    height: 15rem;
+    @include card-style;
+
+    &:hover {
+        @include zoom-hover
+    }
+
+    ;
+}
+
+.card-text {
+    padding: 2px 16px;
+}
+
+.img1,
+.img2,
+.img3,
+.img4,
+.img5 {
+    height: 50%;
+    @include img-sli;
+}
+
+.img1 {
+    background-image: url('../images/social/PEP_TITAN_R34_LaunchAssets_Burger_EF_v1.png');
+}
+
+.img2 {
+    background-image: url('../images/social/PEPSI_2023_PR_WCPZS_Cans.png');
+}
+
+.img3 {
+    background-image: url('../images/social/PEPSI_2023_PR_Logo+Cans.png');
+}
+
+.img4 {
+    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+}
+
+.img5 {
+    background-image: url('../images/social/PEPSI_2023_PR_Photography_Overhead.png');
+}
+
+.navigation {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-400%);
+}
+
+.prev,
+.next {
+    @include slider-btn;
+
+    &:hover {
+        @include slider-btn-hover
+    }
+}
+
+.carousel-indicators {
+    text-align: center;
+    transform: translateY(-1800%);
+    position: relative;
+    z-index: 1;
+}
+
+.indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    background-color: $text-light;
+    border-radius: 50%;
+    border: 2px solid $text-light;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: $bg-primary;
+    border-color: $bg-primary;
+}
+
+
+// DoubleCard
+.title-double-card {
+    // background: #fff;
+    @include text-header-section
+}
+
+.double-card {
+    height: auto;
+    // background-color: red;
+    // border-radius: 16px;
+    // background-image: url('../images/background-desktop.jpg');
+    background-attachment: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    // padding: 10px;
+    border-radius: 24px;
+}
+
+.card-des-img {
+    background-image: url('../images/social/PEPSI_2023_PR_Logo+Cans.png');
+    background-repeat: repeat;   /* This will repeat the image */
+    background-size: auto;       /* This will keep the original size of the image */
+    width: 100%;
+    height: 50%;   /* Adjust height as needed */
+}
+
+// .card-des img {
+//     // width: 100%;
+//     height: 50%;
+// }
+
+.card-des {
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 15 auto;
+    width: 40rem;
+    height: 45rem;
+    @include card-des-style;
+
+    &:hover {
+        @include card-hover
+    }
+
+    ;
+}
+
+.card-des-text {
+    padding: 2px 16px;
+    color: $text-drak;
+}
+
+// Feature
+
+.feature-news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    // padding: 20px;
+}
+
+.feature-title {
+    margin: 5rem 0 0 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.feature-slider {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 50px 0 0 0;
+    overflow: hidden;
+    // background-color: red;
+    height: auto;
+    // padding: 0 0 0 1rem;
+}
+
+.feature-img-slider {
+    display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    transition: transform 0.5s ease-in-out;
+    // padding: 15px;
+}
+
+.card-feature {
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 25rem;
+    height: 35rem;
+    @include slide-feature;
+    @include card-des-style;
+    @include margin-for-warning;
+
+    &:hover {
+        @include card-hover
+    }
+
+    ;
+}
+
+.card-feature img {
+    width: 100%;
+    height: 50%;
+}
+
+.feature-indicators {
+    text-align: center;
+    margin: 1rem 0 0 0;
+    // transform: translateY(-1200%);
+    position: relative;
+    z-index: 1;
+}
+
+.indicator-fea {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    background-color: $text-light;
+    border-radius: 50%;
+    border: 2px solid $text-light;
+    cursor: pointer;
+}
+
+.indicator-fea.active {
+    background-color: $bg-primary;
+    border-color: $bg-primary;
+}
+
+.card-feature-out {
+    padding: 15px;
+}
+
+// Pepsi-jpobs
+.pepsi-jobs {
+    display: flex;
+    padding: 100px;
+    justify-content: center; /* Center the cards horizontally */
+    align-items: center; /* Center the cards vertically */
+    height: auto; /* Full viewport height to center vertically */
+    // background-color: #f0f0f0;
+}
+// Pepsijob-1
+.card-left-jobs {
+    background-color: $bg-light;
+    width: 544px;
+    height: 550px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin-top: -170px;
+    margin-right: -70px; /* Adjust the overlap */
+    padding: 80px;
+    @include card-des-style;
+}
+.card-left-jobs h1 {
+    font-size: 1.5rem;
+    margin: 20 auto;
+}
+
+.img-right-jobs {
+    // background-color: $bg-light;
+    background-image: url('../images/social/PEPSI_2023_PR_Photography_Overhead.png');
+    // background-size: cover;
+    width: 640px;
+    height: 550px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    @include card-des-style;
+}
+
+// pepsijobs-2
+.card-left-jobs-2{
+    background-color: $bg-light;
+    width: 544px;
+    height: 550px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin-top: -170px;
+    // margin-right: 70px; 
+    padding: 80px;
+    @include card-des-style;
+}
+.card-left-jobs-2 h1 {
+    font-size: 1.5rem;
+    margin: 20 auto;
+}
+
+.img-right-jobs-2 {
+    // background-color: $bg-light;
+    background-image: url('../images/social/PEPSI_2023_PR_Photography_Overhead.png');
+    // background-size: cover;
+    width: 640px;
+    height: 550px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    margin-right: -70px;
+    @include card-des-style;
+}
+
+// All Products 
+.products {
+    // background-color: #fff;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.products h1 {
+    margin: 0 0 2rem 0;
+    color: $text-light;
+}
+
+.prod-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    // background-color: blue;
+    width: 900px;
+    height: 900px;
+    align-items: center;
+    justify-items: center;
+}
+
+.pepsi-prod-card {
+    @include pepsi-card-prod;
+    &:hover {
+        // @include z(scale(1.1));
+        @include transition(0.3s);
+        @include transform(scale(1.1) rotate(5deg));
+    }
+}
+
+.p-img1,
+.p-img2,
+.p-img3,
+.p-img4,
+.p-img5, 
+.p-img6,
+.p-img7,
+.p-img8,
+.p-img9 {
+    // height: 50%;
+    @include img-sli;
+}
+
+.p-img1 {
+    background-image: url('../images/social/PEP_TITAN_R34_LaunchAssets_Burger_EF_v1.png');
+}
+.p-img2 {
+    background-image: url('../images/social/PEPSI_2023_PR_WCPZS_Cans.png');
+}
+.p-img3 {
+    background-image: url('../images/social/PEPSI_2023_PR_Logo+Cans.png');
+}
+.p-img4 {
+    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+}
+.p-img5 {
+    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+}
+.p-img6 {
+    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+}
+.p-img7 {
+    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+}
+.p-img8 {
+    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+}
+.p-img9 {
+    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+}
+
+
+// Footer
+footer {
+    color: $text-light;
+    background-color: red;
+    height: 50vh;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: #fff;
+}
+
+
+/* Responsive styles */
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+}
+
+// moblie =============================================================================//
+@media only screen and (max-width: 400px) {
+    .card-des {
+        width: 20rem;
+        height: 25rem;
+    }
+
+    .products {
+        display: none;
+    }
+}
+// moblie =============================================================================//
+
+// EIEI=============================================================================//
+@media only screen and (min-width: 651px) {
+    .card {
+        margin: -100 70;
+        float: right;
+        position: relative;
+        border-radius: 12px;
+        background-color: #fff;
+        overflow: hidden;
+        width: 18rem;
+        height: 10rem;
+        @include card-style;
+
+        &:hover {
+            @include zoom-hover
+        }
+
+        ;
+    }
+}
+// EIEI=============================================================================//
+
+@media only screen and (min-width: 800px) {
+    .card {
+        margin: -100 90;
+        float: right;
+        position: relative;
+        border-radius: 12px;
+        background-color: #fff;
+        overflow: hidden;
+        width: 18rem;
+        height: 10rem;
+        @include card-style;
+
+        &:hover {
+            @include zoom-hover
+        }
+
+        ;
+    }
+}
+
+// Tablet`ep90 =============================================================================//
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    .card-des {
+        width: 25rem;
+        height: 35rem;
+    }
+
+    .double-card {
+        height: auto;
+        width: auto;
+    }
+
+    .double-card.collapsed {
+        height: auto;
+        width: auto;
+    }
+
+    .carousel-indicators {
+        text-align: center;
+        transform: translateY(-1200%);
+        position: relative;
+        z-index: 1;
+    }
+
+    .slide {
+        height: 100vh;
+    }
+
+    .products {
+        display: none;
+    }
+
+    // .feature-title {
+    //     margin: 15rem 0 0 0;
+    // }
+}
+// Tablet`ep90 =============================================================================//
+
+//Desktop=============================================================================//
+@media only screen and (min-width: 961px) {
+    .card {
+        margin: -200 160;
+        width: 30rem;
+        height: 15rem;
+    }
+
+    .feature-news-container {
+        max-width: 1200px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        margin: 0 auto;
+        // background-color: red;
+        @include transition(all 3s ease);
+        // padding: 20px;
+    }
+    .feature-news-container.feature-collapsed {
+        height: 80vh;
+        // margin: 0 0 0 5rem ;
+    }
+
+    .feature-slider {
+        height: auto;
+    }
+
+    .card-feature-out {
+        min-width: auto;
+        box-sizing: border-box;
+        padding: 5px;
+    }
+    
+    .carousel-indicators {
+        transform: translateY(-1500%);
+    }
+
+    .card-feature {
+        // position: relative;
+        width: 24.3rem;
+        height: 40rem;
+    }
+
+    .card-feature img {
+        width: 100%;
+        // border-radius: 8px;
+    }
+
+    .feature-title {
+        margin: 0;
+    }
+
+    // double card
+    .double-card {
+        // height: auto;
+        // background-color: #fff;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        padding: 50px 150px 50px 150px;
+        // margin: 0 0 5rem 0;
+    }
+    .card-des {
+        margin: 5 auto;
+        width: 33rem;
+        height: 40rem;
+    }
+
+    .double-card {
+        height: 100vh;
+        // width: 100%;
+        transition: all 3s ease;
+        margin: 0 auto;
+        // background-color: red;
+        // border-radius: 16px;
+    }
+    .double-card.collapsed {
+        height: 70vh;
+        margin: 0 0 2rem 0;
+        // width: 97%;
+        // background-image: url('../images/social/PEPSI_2023_PR_Photography_Overhead.png');
+        background-repeat: repeat;
+    }
+
+    .pepsi-jobs {
+        display: flex;
+        padding: 100px;
+        justify-content: center; /* Center the cards horizontally */
+        align-items: center; /* Center the cards vertically */
+        height: 100vh; /* Full viewport height to center vertically */
+        @include transition(all 3s ease)
+        // background-color: #f0f0f0;
+    }
+
+    .pepsi-jobs.pepsi-collapsed{
+        height: 50vh;
+    }
+
+    .footer {
+        background-color: blue;
+        height: auto;
+        padding: 100px;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+    .header-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgb(77, 124, 5);
+    }
+
+    .content-footer {
+        display: flex;
+    }
+
+    .footer-copy,
+    .footer-serve,
+    .footer-social {
+        margin: 0 0 0 1rem;
+    }
+
+    .footer-contact{
+        width: 20%;
+        background-color: aqua;
+    }
+    .footer-contact div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-copy{
+        width: 20%;
+        background-color: bisque;
+    }
+    .footer-copy div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-serve{
+        width: 20%;
+        background-color: brown;
+    }
+    .footer-serve div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-social{
+        background-color: red;
+        width: 40%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .footer-social-icon {
+        // display: flex;
+        justify-content: space-between;
+        background-color: green;
+    }
+    .footer-social-icon a{
+        margin: 0 0 0 1rem;
+    }
+
+    .copyright {
+        background-color: green;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .copyright div {
+        
+    }
+
+}
+//Desktop=============================================================================//
+
+// NAv
+@media (max-width: 768px) {
+    .navbar-container {
+        justify-content: end;
+        padding: 10px;
+    }
+
+    .navbar-logo {
+        width: 93%;
+        display: flex;
+        justify-content: center;
+        padding: 0 0 0 30px;
+    }
+
+    .menu-icon {
+        display: block;
+        width: 7%;
+        margin: 0;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+        background: $bg-primary;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        left: 0;
+        opacity: 1;
+    }
+
+    .nav-item {
+        margin: 0;
+        text-align: center;
+        padding: 14px;
+    }
+
+    .nav-link {
+        background-color: transparent;
+        color: #fff;
+        padding: 0;
+    }
+
+    .nav-link:hover {
+        background-color: transparent;
+        color: $text-light;
+    }
+}
