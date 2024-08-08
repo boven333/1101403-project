@@ -81,7 +81,7 @@
 }
 
 @mixin zoom-hover {
-    transform: scale(1.1);
+    transform: scale(1.025);
 }
 
 @mixin text-header-section {
@@ -141,4 +141,27 @@
     -o-transform: $value;
     -ms-transform: $value;
     transform: $value;
+}
+
+// button
+@mixin btn-style($value) {
+    display: inline-block;
+    width: $value;
+    padding: 10px;
+    background-color: $bg-primary;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+@mixin btn-hover {
+    background-color: $text-light;
+    color: $bg-primary;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
 }

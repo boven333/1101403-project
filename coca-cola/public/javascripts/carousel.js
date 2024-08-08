@@ -47,7 +47,7 @@ function prevSlide() {
 }
 
 function startSlideShow() {
-    // slideInterval = setInterval(nextSlide, 3000);
+    slideInterval = setInterval(nextSlide, 3000);
 }
 
 function stopSlideShow() {
@@ -96,7 +96,7 @@ $(document).ready(function () {
 
     $(window).on('scroll', function() {
         //double card
-        if ($(this).scrollTop() > doubleCard) {
+        if ($(this).scrollTop() > doubleCard - 300) {
             $('#double-card').addClass('collapsed');
         } else {
             $('#double-card').removeClass('collapsed');
