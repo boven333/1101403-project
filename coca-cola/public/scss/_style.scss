@@ -1,5 +1,5 @@
-@use './variables' as *;
-@use './mixins' as *;
+@import './variables';
+@import './mixins';
 
 * {
     padding: 0;
@@ -42,9 +42,18 @@ a {
     left: 0;
     min-width: 100%;
     min-height: 100%;
-    z-index: -1;
+    z-index: -1; /* Positioned above the background image */
     object-fit: cover;
+    transition: opacity 0.5s ease; /* Smooth transition */
 }
+
+.background-video.hidden {
+    opacity: 0; /* Fade out the video */
+}
+
+
+
+
 
 // Navbar
 .navbar {
@@ -146,6 +155,7 @@ a {
 
 .slide-btn {
     @include btn-style(300px);
+    @include btn-radius(20px);
     &:hover {
         @include btn-hover;
     }
@@ -234,7 +244,7 @@ a {
     // background-color: red;
     // border-radius: 16px;
     // background-image: url('../images/background-desktop.jpg');
-    background-attachment: fixed;
+    // background-attachment: fixed;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -273,8 +283,20 @@ a {
 }
 
 .card-des-text {
-    padding: 2px 16px;
+    padding: 45px;
     color: $text-drak;
+}
+.card-des-text h4 {
+    margin: 0 0 1rem 0;
+}
+
+.double-card-btn {
+    margin: 1rem 0 0 0;
+    @include btn-radius(0 20px 20px 0);
+    @include btn-style(200px);
+    &:hover {
+        @include btn-hover;
+    }
 }
 
 // Feature
@@ -365,7 +387,7 @@ a {
 // Pepsi-jpobs
 .pepsi-jobs {
     display: flex;
-    padding: 100px;
+    // padding:  0 100px 0 100px;
     justify-content: center; /* Center the cards horizontally */
     align-items: center; /* Center the cards vertically */
     height: auto; /* Full viewport height to center vertically */
@@ -381,7 +403,7 @@ a {
     position: relative;
     z-index: 1;
     margin-top: -170px;
-    margin-right: -70px; /* Adjust the overlap */
+    margin-right: -70px; 
     padding: 80px;
     @include card-des-style;
 }
@@ -401,6 +423,12 @@ a {
     position: relative;
     z-index: 0;
     @include card-des-style;
+    @include transition(all 2s ease);
+}
+.img-right-jobs.changeBg {
+    background-image: url('../images/social/PEPSI_2023_PR_WCPZS_Cans.png');
+    scale: 0.9;
+    @include transition(all 2s ease)
 }
 
 // pepsijobs-2
@@ -434,6 +462,31 @@ a {
     z-index: 0;
     margin-right: -70px;
     @include card-des-style;
+    @include transition(all 2s ease)
+}
+
+.img-right-jobs-2.changeBg2 {
+    background-image: url('../images/social/PEPSI_2023_PR_WCPZS_Cans.png');
+    scale: 0.9;
+    @include transition(all 2s ease)
+}
+
+.box-btn-jobs {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    // background-color: red;
+    // margin: 20px;
+    width: 400px;
+    height: 200px;
+}
+.btn-jobs {
+    // margin: 0 auto;
+    @include btn-radius(20px);
+    @include btn-style(300px);
+    &:hover {
+        @include btn-hover
+    }
 }
 
 // All Products 
@@ -460,15 +513,52 @@ a {
     height: 900px;
     align-items: center;
     justify-items: center;
+    scale: 0.9;
 }
 
 .pepsi-prod-card {
-    @include pepsi-card-prod;
+    @include pepsi-card-prod(250px);
     &:hover {
         // @include z(scale(1.1));
         @include transition(0.3s);
         @include transform(scale(1.1) rotate(5deg));
     }
+}
+.p-img1.fullpepsi-1 {
+    @include pepsi-card-prod(360px);
+    @include transition(all 1s ease);
+}
+.p-img2.fullpepsi-2 {
+    @include pepsi-card-prod(360px);
+    @include transition(all 1s ease);
+}
+.p-img3.fullpepsi-3 {
+    @include pepsi-card-prod(360px);
+    @include transition(all 1s ease);
+}
+.p-img4.fullpepsi-4 {
+    @include pepsi-card-prod(360px);
+    @include transition(all 1s ease);
+}
+.p-img5.fullpepsi-5 {
+    @include pepsi-card-prod(360px);
+    @include transition(all 1s ease);
+}
+.p-img6.fullpepsi-6 {
+    @include pepsi-card-prod(360px);
+    @include transition(all 1s ease);
+}
+.p-img7.fullpepsi-7 {
+    @include pepsi-card-prod(360px);
+    @include transition(all 1s ease);
+}
+.p-img8.fullpepsi-8 {
+    @include pepsi-card-prod(450px);
+    @include transition(all 1s ease);
+}
+.p-img9.fullpepsi-9 {
+    @include pepsi-card-prod(450px);
+    @include transition(all 1s ease);
 }
 
 .p-img1,
@@ -481,35 +571,206 @@ a {
 .p-img8,
 .p-img9 {
     // height: 50%;
-    @include img-sli;
+    @include img-pepsi;
 }
 
 .p-img1 {
-    background-image: url('../images/social/PEP_TITAN_R34_LaunchAssets_Burger_EF_v1.png');
+    background-image: url('../images/products/pepsi-1.png');
 }
 .p-img2 {
-    background-image: url('../images/social/PEPSI_2023_PR_WCPZS_Cans.png');
+    background-image: url('../images/products/pepsi-2.png');
 }
 .p-img3 {
-    background-image: url('../images/social/PEPSI_2023_PR_Logo+Cans.png');
+    background-image: url('../images/products/pepsi-3.png');
 }
 .p-img4 {
-    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+    background-image: url('../images/products/pepsi-4.png');
 }
 .p-img5 {
-    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+    background-image: url('../images/products/pepsi-5.png');
 }
 .p-img6 {
-    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+    background-image: url('../images/products/pepsi-6.png');
 }
 .p-img7 {
-    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+    background-image: url('../images/products/pepsi-7.png');
 }
 .p-img8 {
-    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+    background-image: url('../images/products/pepsi-8.png');
 }
 .p-img9 {
-    background-image: url('../images/social/PEPSI_2023_PR_Licensing.png');
+    background-image: url('../images/products/pepsi-9.png');
+}
+
+#background-image-pep1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Positioned behind the video by default */
+    background-image: url('../images/products/pepsi-1.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+#background-image-pep1.visible-pep1 {
+    opacity: 1; /* Fade in the background image */
+    z-index: -1; /* Move it above the video when visible */
+}
+
+#background-image-pep2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Positioned behind the video by default */
+    background-image: url('../images/products/pepsi-2.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+#background-image-pep2.visible-pep2 {
+    opacity: 1; /* Fade in the background image */
+    z-index: -1; /* Move it above the video when visible */
+}
+
+#background-image-pep3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Positioned behind the video by default */
+    background-image: url('../images/products/pepsi-3.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+#background-image-pep3.visible-pep3 {
+    opacity: 1; /* Fade in the background image */
+    z-index: -1; /* Move it above the video when visible */
+}
+
+#background-image-pep4 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Positioned behind the video by default */
+    background-image: url('../images/products/pepsi-4.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+#background-image-pep4.visible-pep4 {
+    opacity: 1; /* Fade in the background image */
+    z-index: -1; /* Move it above the video when visible */
+}
+
+#background-image-pep5 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Positioned behind the video by default */
+    background-image: url('../images/products/pepsi-5.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+#background-image-pep5.visible-pep5 {
+    opacity: 1; /* Fade in the background image */
+    z-index: -1; /* Move it above the video when visible */
+}
+
+#background-image-pep6 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Positioned behind the video by default */
+    background-image: url('../images/products/pepsi-6.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+#background-image-pep6.visible-pep6 {
+    opacity: 1; /* Fade in the background image */
+    z-index: -1; /* Move it above the video when visible */
+}
+
+#background-image-pep7 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Positioned behind the video by default */
+    background-image: url('../images/products/pepsi-7.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+#background-image-pep7.visible-pep7 {
+    opacity: 1; /* Fade in the background image */
+    z-index: -1; /* Move it above the video when visible */
+}
+
+#background-image-pep8 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Positioned behind the video by default */
+    background-image: url('../images/products/pepsi-8.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+#background-image-pep8.visible-pep8 {
+    opacity: 1; /* Fade in the background image */
+    z-index: -1; /* Move it above the video when visible */
+}
+
+#background-image-pep9 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Positioned behind the video by default */
+    background-image: url('../images/products/pepsi-9.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+#background-image-pep9.visible-pep9 {
+    opacity: 1; /* Fade in the background image */
+    z-index: -1; /* Move it above the video when visible */
 }
 
 
@@ -524,6 +785,91 @@ footer {
     height: 1px;
     width: 100%;
     background-color: #fff;
+}
+
+.footer {
+    background-color: blue;
+    height: auto;
+    padding: 100px;
+    max-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+.header-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // background-color: rgb(77, 124, 5);
+}
+
+.content-footer {
+    display: flex;
+}
+
+.footer-copy,
+.footer-serve,
+.footer-social {
+    margin: 0 0 0 1rem;
+}
+
+.footer-contact{
+    width: 20%;
+    // background-color: aqua;
+}
+.footer-contact div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-copy{
+    width: 20%;
+    // background-color: bisque;
+}
+.footer-copy div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-serve{
+    width: 20%;
+    // background-color: brown;
+}
+.footer-serve div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-social{
+    // background-color: red;
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+}
+.footer-social-icon {
+    // display: flex;
+    justify-content: space-between;
+    // background-color: green;
+}
+.footer-social-icon a{
+    margin: 0 0 0 1rem;
+}
+
+.copyright {
+    // background-color: green;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.location{
+    border: solid 1px;
+    border-radius: 26px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.location p {
+    margin: 0 0 0 10px;
 }
 
 
@@ -548,58 +894,29 @@ footer {
 }
 // moblie =============================================================================//
 
-// EIEI=============================================================================//
-@media only screen and (min-width: 651px) {
-    .card {
-        margin: -100 70;
-        float: right;
-        position: relative;
-        border-radius: 12px;
-        background-color: #fff;
-        overflow: hidden;
-        width: 18rem;
-        height: 10rem;
-        @include card-style;
 
-        &:hover {
-            @include zoom-hover
-        }
-
-        ;
-    }
-}
-// EIEI=============================================================================//
-
-@media only screen and (min-width: 800px) {
-    .card {
-        margin: -100 90;
-        float: right;
-        position: relative;
-        border-radius: 12px;
-        background-color: #fff;
-        overflow: hidden;
-        width: 18rem;
-        height: 10rem;
-        @include card-style;
-
-        &:hover {
-            @include zoom-hover
-        }
-
-        ;
-    }
-}
-
-// Tablet`ep90 =============================================================================//
+// Tablet =============================================================================//
 @media only screen and (min-width: 401px) and (max-width: 960px) {
     .card-des {
-        width: 25rem;
+        width: 100%;
         height: 35rem;
+    }
+
+    .card {
+        margin: -200 auto;
+        width: 25rem;
+        height: 15rem;
+    }
+
+    .slide-btn {
+        margin: 0 auto;
+        width: 100%;
     }
 
     .double-card {
         height: auto;
         width: auto;
+        padding: 10px;
     }
 
     .double-card.collapsed {
@@ -609,7 +926,7 @@ footer {
 
     .carousel-indicators {
         text-align: center;
-        transform: translateY(-1200%);
+        transform: translateY(-1500%);
         position: relative;
         z-index: 1;
     }
@@ -618,43 +935,135 @@ footer {
         height: 100vh;
     }
 
-    .products {
-        display: none;
+    .pepsi-jobs-f {
+        display: flex;
+        flex-direction: column-reverse;
+        // margin: 0 auto;
+        // padding: 100px;
+        justify-content: center;
+        align-items: center;
+        height: 70vh;
+        width: 100%;
+        @include transition(all 2s ease);
+        // background-color: #f0f0f0;
+        margin: 0;
+        padding: 10px;
     }
+
+    .pepsi-jobs-t {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        // height: 80vh;
+        width: 100%;
+        @include transition(all 2s ease);
+        // background-color: #f0f0f0;
+    }
+
+    .card-left-jobs {
+        padding: 10px;
+        width: 90%;
+        height: auto;
+       margin: -100 auto;
+    }
+    .card-left-jobs-2 {
+        padding: 10px;
+        width: 90%;
+        height: auto;
+       margin: -100 auto;
+    }
+
+    .box-btn-jobs {
+        justify-content: center;
+        // background-color: red;
+        height: auto;
+        width: 100%;
+        padding: 20px 0 0 0;
+        margin: 0 auto;
+    }
+
+    .btn-jobs {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .img-right-jobs {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .img-right-jobs-2 {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .prod-card {
+        // display: flex;
+        // grid-template-columns: repeat(2, 1fr);
+        flex-wrap: wrap;
+        // background-color: blue;
+        width: 100%;
+        // height: 150px;
+        padding: 0;
+        margin: 0 auto;
+        // align-items: center;
+        // justify-items: center;
+    }
+    .products { 
+        // background-color: red;
+        // overflow: hidden;
+        height: 1000px;
+        padding: 0;
+        margin: 100 auto;
+    }
+    .products h1 {
+        margin: 0;
+    }
+
+    // .products {
+    //     display: none;
+    // }
 
     // .feature-title {
     //     margin: 15rem 0 0 0;
     // }
 }
-// Tablet`ep90 =============================================================================//
+// Tablet =============================================================================//
 
 //Desktop=============================================================================//
 @media only screen and (min-width: 961px) {
     .card {
-        margin: -200 160;
+        margin: -200 800;
         width: 30rem;
         height: 15rem;
+    }
+    
+    .card-feature {
+        height: auto;
     }
 
     .feature-news-container {
         max-width: 1200px;
-        height: 100vh;
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-items: center;
         align-items: center;
         margin: 0 auto;
         // background-color: red;
-        @include transition(all 3s ease);
+        @include transition(all 2s ease);
         // padding: 20px;
     }
     .feature-news-container.feature-collapsed {
-        height: 80vh;
+        // height: 65vh;
         // margin: 0 0 0 5rem ;
     }
 
     .feature-slider {
         height: auto;
+        // background-color: red;
     }
 
     .card-feature-out {
@@ -688,9 +1097,12 @@ footer {
         // background-color: #fff;
         display: flex;
         flex-wrap: nowrap;
-        justify-content: space-evenly;
-        padding: 50px 150px 50px 150px;
+        justify-content: center;
+        padding: 50px;
         // margin: 0 0 5rem 0;
+    }
+    .card-des-img {
+        // height: 70%;
     }
     .card-des {
         margin: 5 auto;
@@ -699,40 +1111,63 @@ footer {
     }
 
     .double-card {
-        height: 100vh;
-        // width: 100%;
-        transition: all 3s ease;
+        display: flex;
+        // height: 80vh;
+        width: 100%;
+        @include transition(all 3s ease);
         margin: 0 auto;
+        // scale: 0.8;
         // background-color: red;
         // border-radius: 16px;
     }
     .double-card.collapsed {
-        height: 70vh;
-        margin: 0 0 2rem 0;
-        // width: 97%;
+        // height: 60vh;
+        margin: 0 auto;
+        @include transform(scale(0.8));
         // background-image: url('../images/social/PEPSI_2023_PR_Photography_Overhead.png');
         background-repeat: repeat;
     }
 
-    .pepsi-jobs {
+    .pepsi-jobs-f {
         display: flex;
-        padding: 100px;
-        justify-content: center; /* Center the cards horizontally */
-        align-items: center; /* Center the cards vertically */
-        height: 100vh; /* Full viewport height to center vertically */
-        @include transition(all 3s ease)
+        // margin: 0 auto;
+        // padding: 100px;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 100%;
+        @include transition(all 2s ease);
         // background-color: #f0f0f0;
     }
 
-    .pepsi-jobs.pepsi-collapsed{
-        height: 70vh;
+    // .pepsi-jobs-f.pepsi-collapsed{
+    //     // height: 70vh;
+    //     // justify-content: flex-end;
+    //     @include transform(scale(1.1));
+    //     // width: 120%;
+    // }
+
+    .pepsi-jobs-t {
+        display: flex;
+        // padding: 100px;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 100%;
+        @include transition(all 2s ease);
+        // background-color: #f0f0f0;
     }
+
+    // .pepsi-jobs-t.pepsi-collapsed{
+    //     // height: 70vh;
+    //     @include transform(scale(1.1));
+    // }
 
 
     // footer
     .footer {
-        background-color: blue;
-        height: auto;
+        background-color: $bg-primary;
+        height: 100%;
         padding: 100px;
         max-width: 100%;
         margin: 0 auto;
@@ -816,7 +1251,7 @@ footer {
 }
 //Desktop=============================================================================//
 
-// NAv
+//NAV
 @media (max-width: 768px) {
     .navbar-container {
         justify-content: end;
